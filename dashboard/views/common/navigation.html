@@ -1,0 +1,89 @@
+<!-- Start page sidebar wrapper -->
+<div class="page-sidebar-wrapper">
+    <div class="page-sidebar" style="position: fixed">
+        <ul class="page-sidebar-menu  page-header-fixed" style="background-color:white ;">
+            <br>
+            <li ng-show="!checkusr" class="nav-item" ui-sref-active="active">
+                <a class="nav-link" ui-sref="dashboard" style="margin-top: -38px;">
+                    <i class="fa fa-home fa-fw"></i>
+                    <span class="title"> SR Hospital Dashboard</span>
+                </a>
+            </li>
+            <li ng-show="!checkusr" class="nav-item" ui-sref-active="active">
+                <a class="nav-link" ui-sref="about">
+                    <i class="fa fa-user" style="color:black;"></i>
+                    <span class="title" style="font-family: raleway;color: rgb(124, 26, 26);font-size: 22px;">Add
+                        Cost</span>
+                </a>
+
+            </li>
+            <br>
+            <li ng-show="!checkusr" class="nav-item" ui-sref-active="active">
+                <a class="nav-link" ui-sref="addpatients">
+                    <i class="fa fa-user" style="color:black;"></i>
+                    <span class="title" style="font-family: raleway;color: rgb(128, 117, 27);font-size: 22px;">Add
+                        Patient</span>
+                </a>
+            </li>
+            <br>
+            <li ng-show="!checkusr" class="nav-item" ui-sref-active="active">
+                <a class="nav-link" ui-sref="examination">
+                    <i class="fa fa-user" style="color:black;"></i>
+                    <span class="title"
+                        style="font-family: raleway;color: rgb(10, 116, 209);font-size: 22px;">Examination</span>
+                </a>
+            </li>
+            <br>
+            <li ng-show="!checkusr" class="nav-item" ui-sref-active="active">
+                <a class="nav-link" ui-sref="ippatients">
+                    <i class="fa fa-user" style="color:black;"></i>
+                    <span class="title" style="font-family: raleway;color: rgb(181, 21, 212);font-size: 22px;">IP Patients</span>
+                </a>
+            </li>
+
+            <br>
+            <li ng-show="!checkusr" class="nav-item" ui-sref-active="active">
+                <a class="nav-link" >
+                    <i class="fa fa-user" style="color:black;"></i>
+                    <span class="title" style="font-family: raleway;color: rgb(218, 221, 9);font-size: 22px;">Pay
+                        Bill</span>
+                </a>
+                <ul class="sub-menu">
+                    <li ng-show="!checkusr" class="nav-item" ui-sref-active="active">
+                        <a class="nav-link" ui-sref="opbills">
+                            <i class="fa fa-building"></i>
+                            <span class="title" style="font-size: 18px;"><strong>OP Bills</strong></span>
+                        </a>
+                    </li>
+                </ul>
+                <ul class="sub-menu">
+                    <li ng-show="!checkusr" class="nav-item" ui-sref-active="active">
+                        <a class="nav-link" ui-sref="ipbills">
+                            <i class="fa fa-building"></i>
+                            <span class="title" style="font-size: 18px;"><strong>IP Bills</strong></span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</div>
+</div>
+<style>
+    .page-sidebar .page-sidebar-menu>li.active>a {
+
+        background: #a8c0ff !important;
+    }
+
+
+    .page-sidebar .page-sidebar-menu>li:hover>a {
+        background: white;
+
+    }
+
+    .page-sidebar,
+    .page-sidebar-closed.page-sidebar-fixed .page-sidebar:hover {
+        z-index: 1;
+
+    }
+</style>

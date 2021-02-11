@@ -1,0 +1,220 @@
+<div class="page-container " ng-controller="aboutCtrl">
+    <!-- Start page content wrapper -->
+    <div class="page-content-wrapper animated fadeInRight  ">
+        <div class="page-content">
+            <div class="row wrapper border-bottom page-heading">
+                <div class="col-lg-12">
+                    <h2>Add Cost</h2>
+                    <ol class="breadcrumb">
+                        <li> <a href="#/dashboard">Home</a> </li>
+                        <li class="active"> <strong>Add Cost</strong> </li>
+                    </ol>
+                </div>
+                <div class="col-lg-12"> </div>
+            </div>
+            <div class="widgets-container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <form name="abc">
+                            <fieldset>
+                                <!-- <div class="form-group" style="width:725px;padding-left:200px;">
+                                    <div class="input-group  col-md-5">
+                                        <div class="form-group" style="width: 900px">
+                                            <label class="col-md-2 control-label"> Mode of Patient:
+                                            </label>
+                                            <select ng-model="a.mode_of_patient" class="form-control" style="width: 60px;">
+                                                <option value="op">OP</option>
+                                                <option value="ip">IP</option>
+                                            </select>
+                                             <div class="input-group  col-md-5">
+                                                <input class="form-control" name="fcategory" ng-model="a.title" required
+                                                    type="text" placeholder="Add Title">
+                                            </div> 
+                                        </div>
+                                    </div>
+                                </div> -->
+
+                                <div class="form-group" style="width:725px;padding-left:200px;"
+                                    ng-switch="a.mode_of_patient">
+                                    <div class="input-group  col-md-5">
+                                        <div class="form-group" style="width: 900px">
+                                            <label class="col-md-2 control-label"> IP Category:
+                                            </label>
+                                            <select ng-model="a.category">
+                                                <option>General Ward</option>
+                                                <option>ICU</option>
+                                                <option>NICU</option>
+                                            </select>
+
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group" style="width:725px;padding-left:200px;"
+                                    ng-switch="a.mode_of_patient">
+                                    <div class="input-group  col-md-5">
+                                        <div class="form-group" style="width: 900px">
+                                            <label class="col-md-2 control-label"> Equipement:
+                                            </label>
+                                            <select ng-model="a.equipement">
+                                                <option value="bed">Bed</option>
+                                                <option>Oxygen</option>
+                                                <option>Ventilator</option>
+                                            </select>
+
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                <div class="form-group" style="width:725px;padding-left:200px;"
+                                    ng-switch="a.equipement">
+                                    <div class="input-group  col-md-5">
+                                        <div class="form-group" style="width: 900px">
+                                            <label class="col-md-2 control-label" ng-switch-when="bed">Count of Beds:
+                                            </label>
+
+                                            <div class="input-group  col-md-5">
+                                                <input class="form-control" name="fcategory" ng-switch-when="bed"
+                                                    ng-model="a.count_of_beds" required type="text"
+                                                    placeholder="Add count of beds">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group" style="width:725px;padding-left:200px;">
+                                    <div class="input-group  col-md-5">
+                                        <div class="form-group" style="width: 900px">
+                                            <label class="col-md-2 control-label">Cost of Equipement Per day:
+                                            </label>
+
+                                            <div class="input-group  col-md-5">
+                                                <input class="form-control" name="fcategory" ng-model="a.cost_equipment"
+                                                    required type="text" placeholder="Add cost of equipement">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                </div>
+                                <div class="form-group col-md-5" style="float: center">
+                                    <div class=" col-sm-6 col-sm-offset-6">
+                                        <button class="btn aqua" type="reset" ng-disabled="abc.$invalid"
+                                            ng-click="submitaddcostdata(a)">Submit</button>
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </form>
+                    </div>
+                </div>
+                <!-- table start -->
+                <div class="wrapper-content ">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="ibox float-e-margins">
+                                <div class="ibox-content collapse in">
+                                    <div class="widgets-container">
+                                        <table datatable="ng" dt-options="dtOptions"
+                                            class="table table-striped table-bordered table-hover dataTables-example"
+                                            style=" font-family: Times New Roman;    font-size: 16px; width: 100%;">
+                                            <thead style="background: #7f10a1;color: white;font-family: raleway">
+                                                <tr>
+                                                    <th>S.no</th>
+                                                    <th>IP Category</th>
+                                                    <th>Equipement</th>
+                                                    <th>Count of beds</th>
+                                                    <th>Cost of Equipement per day</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr ng-repeat="ms in abutd"
+                                                    style="background-color: rgb(218, 191, 156);">
+                                                    <td class="project-status" style="font-family: raleway">
+                                                        {{$index + 1}}</td>
+                                                    <td class="project-title" style="font-family: raleway">
+                                                        {{ms.category}}</td>
+                                                    <td class="project-title" style="font-family: raleway">
+                                                        {{ms.equipement}}</td>
+                                                    <td class="project-title" style="font-family: raleway">
+                                                        {{ms.count_of_beds}}</td>
+                                                    <td class="project-title" style="font-family: raleway">
+                                                        {{ms.cost_equipment}}</td>
+                                                    <!-- <td>
+                                                        <a ng-click="Editprsntdt(ms);">
+                                                            <i class="fa fa-pencil" aria-hidden="true"></i>
+                                                        </a>
+                                                    </td> -->
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div id="myModal" class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog">
+                            <div class="modal-dialog modal-sm" style="width: 700px;">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">×</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <label class="col-md-3 control-label">Team Name</label>
+                                        <div class="input-group date form_datetime col-md-6">
+                                            <input type="text" ng-model="Edittm.team_nm" class="form-control"
+                                                required />
+                                        </div>
+                                        <br>
+                                        <label class="col-md-3 control-label">Team Designation</label>
+                                        <div class="input-group date form_datetime col-md-6">
+                                            <input type="text" ng-model="Edittm.team_desigtn" class="form-control"
+                                                required />
+                                        </div>
+                                        <br>
+                                        <!-- <label class="col-md-3 control-label">Team Image</label>
+                                        <div class="input-group date form_datetime col-md-6">
+                                            <input type="text" ng-model="Edittm.team_img" class="form-control" required />
+                                        </div> -->
+                                        <br>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-default"
+                                            data-dismiss="modal">Close</button>
+                                        <button type="button" class="btn green" data-dismiss="modal"
+                                            ng-click="updateteamdt(Edittm)">Save</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- table end -->
+            </div>
+        </div>
+
+    </div>
+
+</div>
+<style>
+    .modal-backdrop.in {
+        filter: alpha(opacity=50);
+        opacity: 0;
+    }
+
+    .fadeInRight {
+        -webkit-animation-name: fadeInRight;
+        animation-name: auto;
+    }
+
+    .ui-datepicker-trigger {
+        position: absolute;
+        margin-top: -28px;
+        right: 15px;
+        border: none;
+        background-color: transparent;
+    }
+</style>
